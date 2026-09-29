@@ -25,8 +25,6 @@ I wanted to see how far free, open-source tools could go as everyday endpoint pr
 - Runs as a **systemd service** that starts at boot and restarts itself if it crashes
 
 ## How it works
-## ⚙️ Architectural Workflow
-
 ```text
   file created / modified / moved in
                  │
