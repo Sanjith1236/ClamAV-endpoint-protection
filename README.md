@@ -25,6 +25,9 @@ I wanted to see how far free, open-source tools could go as everyday endpoint pr
 - Runs as a **systemd service** that starts at boot and restarts itself if it crashes
 
 ## How it works
+## ⚙️ Architectural Workflow
+
+```text
   file created / modified / moved in
                  │
                  ▼
@@ -39,6 +42,7 @@ I wanted to see how far free, open-source tools could go as everyday endpoint pr
   nothing to do     move to /var/quarantine
                     + write to realtime.log
                     + notify-send + journal entry
+```
 freshclam runs in the background and keeps the signature database current, so detection stays up to date without manual work.
 
 ## Requirements
