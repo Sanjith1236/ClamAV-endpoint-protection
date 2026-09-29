@@ -1,4 +1,4 @@
-# clamav-endpoint-protection
+# Clamav-endpoint-protection
 
 Real-time malware protection in Ubuntu, built on ClamAV. A small Bash script watches your directories, hands every new or changed file to the ClamAV daemon, quarantines anything infected and logs the event. systemd keeps it running from boot.
 
