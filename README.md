@@ -131,11 +131,9 @@ Expected result:
 - The event is written to `/var/log/clamav/realtime.log`
 
 ## Checking logs and quarantine
-cat /var/log/clamav/realtime.log -> logs
+cat /var/log/clamav/realtime.log 
 
-ls -l /var/quarantine -> to check quarantined files
-
-sudo journalctl -u clamav-realtime.service -f -> live service output
+ls -l /var/quarantine 
 
 ## Known limitations
 - **Signature-based only.** ClamAV can miss brand new (zero-day) threats and has no behavioral analysis, machine learning or ransomware protection.
