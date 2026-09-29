@@ -1,0 +1,16 @@
+[Unit]
+Description=ClamAV Real-Time Protection Daemon
+After=network.target clamav-daemon.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/clamav-realtime.sh
+Restart=always
+RestartSec=5
+User=root
+Group=root
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
