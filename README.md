@@ -81,9 +81,8 @@ sudo chmod 664 /var/log/clamav/realtime.log
 sudo chown root:clamav /var/log/clamav/realtime.log
 
 ### 7. Add the monitoring script
-# Create and edit the script on your system
 sudo nano /usr/local/bin/clamav-realtime.sh
-Paste the script contents into the editor, save with `Ctrl+O`, and exit with `Ctrl+X`.
+Paste the script contents into the editor, save with Ctrl+O, and exit with Ctrl+X.
 
 Make the script executable:
 sudo chmod +x /usr/local/bin/clamav-realtime.sh
@@ -91,7 +90,6 @@ sudo chmod +x /usr/local/bin/clamav-realtime.sh
 (Optional) To monitor folders other than `/home`, modify the `WATCH_DIR` variable inside the script.
 
 ### 8. Create the systemd service
-# Create and edit the systemd service file
 sudo nano /etc/systemd/system/clamav-realtime.service
 Paste the service file contents into the editor, save, and exit.
 
