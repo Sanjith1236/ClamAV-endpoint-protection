@@ -131,13 +131,12 @@ Expected result:
 - The event is written to `/var/log/clamav/realtime.log`
 
 ## Checking logs and quarantine
-# detection log
 cat /var/log/clamav/realtime.log
 
-# quarantined files
+## quarantined files
 ls -l /var/quarantine
 
-# live service output
+## live service output
 sudo journalctl -u clamav-realtime.service -f
 
 ## Known limitations
