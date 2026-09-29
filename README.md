@@ -133,10 +133,8 @@ Expected result:
 ## Checking logs and quarantine
 cat /var/log/clamav/realtime.log
 
-## quarantined files
 ls -l /var/quarantine
 
-## live service output
 sudo journalctl -u clamav-realtime.service -f
 
 ## Known limitations
