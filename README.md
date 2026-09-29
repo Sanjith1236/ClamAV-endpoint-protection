@@ -53,6 +53,7 @@ freshclam runs in the background and keeps the signature database current, so de
 
 ### 1. Update the system
 sudo apt update
+
 sudo apt upgrade -y
 
 ### 2. Install the packages
@@ -62,41 +63,55 @@ sudo apt install clamav clamav-daemon clamav-freshclam clamtk inotify-tools libn
 The freshclam service locks the database while it runs, so stop it first, update manually, then start it again.
 
 sudo systemctl stop clamav-freshclam
+
 sudo freshclam
+
 sudo systemctl enable clamav-freshclam
+
 sudo systemctl start clamav-freshclam
 
 ### 4. Enable the ClamAV daemon
 sudo systemctl enable clamav-daemon
+
 sudo systemctl restart clamav-daemon
+
 sudo systemctl status clamav-daemon
 
 ### 5. Create the quarantine folder
 sudo mkdir -p /var/quarantine
+
 sudo chmod 700 /var/quarantine
 
 ### 6. Create the log file
 sudo touch /var/log/clamav/realtime.log
+
 sudo chmod 664 /var/log/clamav/realtime.log
+
 sudo chown root:clamav /var/log/clamav/realtime.log
 
 ### 7. Add the monitoring script
 sudo nano /usr/local/bin/clamav-realtime.sh
+
 Paste the script contents into the editor, save with Ctrl+O, and exit with Ctrl+X.
 
 Make the script executable:
+
 sudo chmod +x /usr/local/bin/clamav-realtime.sh
 
 (Optional) To monitor folders other than `/home`, modify the `WATCH_DIR` variable inside the script.
 
 ### 8. Create the systemd service
 sudo nano /etc/systemd/system/clamav-realtime.service
+
 Paste the service file contents into the editor, save, and exit.
 
 ### 9. Start it
 sudo systemctl daemon-reload
+
 sudo systemctl enable clamav-realtime.service
+
 sudo systemctl start clamav-realtime.service
+
 sudo systemctl status clamav-realtime.service
 
 ## Testing with EICAR
@@ -104,12 +119,15 @@ sudo systemctl status clamav-realtime.service
 Never test with real malware. The EICAR file is a harmless test string that every antivirus is built to flag. Download it into a folder that is being watched (for example your home directory):
 
 cd ~
+
 wget https://secure.eicar.org/eicar.com
 
 Expected result:
 
 - The file is scanned and matches a signature
+
 - It is moved to `/var/quarantine` automatically
+
 - The event is written to `/var/log/clamav/realtime.log`
 
 ## Checking logs and quarantine
