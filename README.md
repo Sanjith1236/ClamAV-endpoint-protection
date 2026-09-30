@@ -46,7 +46,7 @@ freshclam runs in the background and keeps the signature database current, so de
 ## Requirements
 - Ubuntu Server 24.04 LTS (other Debian-based systems should work too)
 - Root or sudo access
-- Packages: `clamav`, `clamav-daemon`, `clamav-freshclam`, `clamtk`, `inotify-tools`, `libnotify-bin`
+- Packages: `clamav`, `clamav-daemon`, `clamav-freshclam`, `clamtk`,
 - systemd
 
 ## Installation
